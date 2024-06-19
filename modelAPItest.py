@@ -49,7 +49,7 @@ counter = ObjectCounter(video_path=0, output_path="object_counting_output.mp4")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    with open("webModeltest.html") as f:
+    with open("webModelAPItest.html") as f:
         html_content = f.read()
     return HTMLResponse(content=html_content, status_code=200)
 
