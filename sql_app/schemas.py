@@ -1,6 +1,5 @@
 from datetime import datetime
 from pydantic import BaseModel # type: ignore
-from typing import List
 
 class UserCreate(BaseModel):
     username: str
@@ -16,14 +15,38 @@ class UserRead(BaseModel):
         orm_mode = True
 
 class ShrimpQuantityCreate(BaseModel):
-    quantity: float
+    quantity: int
     user_id: int
 
 class ShrimpQuantityRead(BaseModel):
     id: int
-    quantity: float
+    quantity: int
     user_id: int
     timestamp: datetime
 
     class Config:
         orm_mode = True
+
+class ShrimpPondCreate(BaseModel):
+    pond_name: str
+    user_id: int
+    pond_quantity: int
+    shrimp_sold: int
+
+class ShrimpPondRead(BaseModel):
+    id: int
+    pond_name: str
+    user_id: int
+    pond_quantity: int
+    shrimp_sold: int
+    date: datetime
+
+    class Config:
+        orm_mode = True
+        
+class ShrimpPondUpdate(BaseModel):
+    pond_name: str
+    user_id: int
+    pond_quantity: int
+    shrimp_sold: int
+    date: datetime
